@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Register Mobile</title>
+</head>
+ <body>
+     <h2 style="color:blue;text-align:center">Mobile Registration</h2>
+		<table align="center" >
+                <form th:object="${mobile}" method="post" >
+                 <tr>
+                 <td>Serial No</td><td><input type="text" th:field="*{sno}"></td>
+                 </tr>
+                 <tr>
+                 <td>Model</td><td><input  type="text" th:field="*{model}"></td>
+                 </tr>
+                  <tr>
+                 <td>Company</td><td><input  type="text" th:field="*{company}"></td>
+                 </tr>
+                 <tr>
+                 <td>Price</td><td><input  type="text" th:field="*{price}"></td>
+                 </tr>
+                 <tr><td colspan="2" align="center"><input type="submit" value="Add"></td></tr>
+                  </form>
+     </table>
+</body>
+</html>

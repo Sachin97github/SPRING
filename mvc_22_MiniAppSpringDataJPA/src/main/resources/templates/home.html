@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Mobiles List</title>
+</head>
+<body>
+    <span th:text=${resultMsg}/>
+	<div th:if="${mobileList!=null}">
+      <table align="center" border="1">
+			<tr>
+				<th>Serial No</th>
+				<th>Model</th>
+				<th>Company</th>
+				<th>Price</th>
+				<th>Operations</th>
+			</tr>
+			<tr th:each="dto:${mobileList}">
+				<td th:text="${dto.sno}"/>
+				<td th:text="${dto.model}"/>
+				<td th:text="${dto.company}"/>
+				<td th:text="${dto.price}"/>
+				<td>
+				      <a th:href="@{/mobile/edit(sno=${dto.sno})}">edit</a>
+				       <a th:href="@{/mobile/delete(sno=${dto.sno})}">delete</a>
+				</td>
+			</tr>
+		</table>
+ <center>
+      <a th:href="@{/mobile/form}">Add Mobile</a>
+ </center>
+	</div>
+</body>
+</html>

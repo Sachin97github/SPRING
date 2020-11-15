@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jee https://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/security https://www.springframework.org/schema/security/spring-security-5.4.xsd">
+      
+      <security:http use-expressions="true">
+        <security:intercept-url pattern="/home" access="permitAll"/>
+       <security:intercept-url  pattern="/welcome"  access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" /> 
+       <security:form-login/>
+       <security:logout logout-success-url="/logout.jsp"/>
+       <security:access-denied-handler error-page="/access-denied.jsp"/>
+      </security:http>
+      
+      <security:authentication-manager>
+           <security:authentication-provider>
+            <security:user-service>
+            <security:user name="sachin" password="{noop}nsachin" authorities="ROLE_ADMIN"/>
+            <security:user name="ram" password="{noop}seeta" authorities="ROLE_MANAGER"/>
+            <security:user name="seeta" password="{noop}ram" authorities="ROLE_CLERK" locked="true"/>
+            </security:user-service>
+         </security:authentication-provider>
+       </security:authentication-manager>
+  
+</beans>
