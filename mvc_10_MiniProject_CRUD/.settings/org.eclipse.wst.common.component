@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+	<wb-module deploy-name="mvc_10_MiniProject_CRUD">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/" source-path="/WebContent/images"/>
+		<property name="context-root" value="mvc_10_MiniProject_CRUD"/>
+	</wb-module>
+</project-modules>

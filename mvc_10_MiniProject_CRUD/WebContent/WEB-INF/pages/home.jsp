@@ -1,0 +1,1 @@
+<h2 style="color:red;text-align:center;"><a href="listEmp.htm">Get All Employee</a></h2>
