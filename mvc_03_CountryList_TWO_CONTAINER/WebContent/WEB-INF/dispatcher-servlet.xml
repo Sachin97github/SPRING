@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="home.mvc">hc</prop>
+				<prop key="showCountry.mvc">scc</prop>
+			</props>
+		</property>
+	</bean>
+
+<!-- Controller Classes -->
+	<bean id="hc" class="com.nit.controller.HomeController" />
+	<bean id="scc" class="com.nit.controller.ShowCountriesController">
+		<constructor-arg  ref="service"/>
+	</bean>
+
+  <!-- View Resolver -->
+ <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+     <property name="prefix" value="/WEB-INF/pages/"/>
+     <property name="suffix" value=".jsp"/>
+ </bean>
+
+
+</beans>
